@@ -29,3 +29,40 @@ The dataset (`pet_adoption_data.csv`) contains information on 2,007 pets with 13
     * Mapped ordinal feature `size` to numerical values (Small=1, Medium=2, Large=3).
     * Applied One-Hot Encoding to categorical variables: `color`, `pet_type`, `breed`.
 * **Scaling:**
+    * Applied **MinMax Scaling** to `weight_kg`.
+    * Applied **Standard Scaling** to `adoption_fee` to normalize costs.
+
+### 3. Model Training & Evaluation
+* **Baseline Model:** Trained a default `DecisionTreeClassifier` which achieved an accuracy of **86%**.
+* **Hyperparameter Tuning:** Improved the model by experimenting with specific parameters:
+    * `criterion='entropy'`
+    * `max_depth=5`
+    * `min_samples_split=10`
+    * `min_samples_leaf=5`
+
+## 📈 Results
+The hyperparameter tuning significantly improved model performance.
+
+| Metric | Default Model | Tuned Model |
+| :--- | :--- | :--- |
+| **Accuracy** | 86% | **91%** |
+| **Precision (Likely)** | 75% | **90%** |
+| **Recall (Likely)** | 88% | **81%** |
+
+The confusion matrix (shown above) illustrates that the tuned model has a high true positive and true negative rate, making it a reliable tool for prediction.
+
+## 💻 How to Run
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/yourusername/pet-adoption-prediction.git](https://github.com/yourusername/pet-adoption-prediction.git)
+    ```
+2.  **Install dependencies:**
+    ```bash
+    pip install pandas matplotlib seaborn scikit-learn
+    ```
+3.  **Run the Notebook:**
+    Open `Pet-Adoption-Likelihood-Predictor.ipynb` in Jupyter Notebook or Google Colab and execute the cells.
+
+## 🤝 Credits
+Dataset provided by [Rabie El Kharoua on Kaggle](https://www.kaggle.com/datasets/rabieelkharoua/predict-pet-adoption-status-dataset).
